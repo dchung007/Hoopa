@@ -6,7 +6,7 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
-
+// Sign up
 router.post(
   '/',
   asyncHandler(async (req, res) => {
@@ -20,5 +20,7 @@ router.post(
     });
   })
 );
+
+
 
 module.exports = router;
