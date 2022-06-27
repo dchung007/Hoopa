@@ -2,12 +2,24 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const questionsRouter = require('./questions');
+const asyncHandler = require('express-async-handler');
+const db = require("../../db/models");
+
+const { Question } = db;
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
 router.use('/questions', questionsRouter);
+
+router.get('/', asyncHandler(async (req, res) => {
+  const questions = await Question.findAll({
+    limit: 10
+  });
+  // console.log(questions);
+  return res.json(questions);
+}))
 
 // router.post('/test', function (req, res) {
 //   res.json({ requestBody: req.body });

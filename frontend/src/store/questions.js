@@ -36,17 +36,19 @@ export const getQuestions = () => async (dispatch) => {
 }
 
 export const createQuestion = (question) => async (dispatch) => {
-  const response = await fetch(`/api/questions`, {
+  const response = await csrfFetch(`/api/questions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/JSON'
     },
     body: JSON.stringify(question)
   })
-
+  // console.log(response.ok)
   if (response.ok) {
+    // console.log('response iss valid----------------')
     const newQuestion = await response.json();
     dispatch(addQuestion(newQuestion));
+    // console.log(newQuestion)
     return newQuestion;
   }
 }

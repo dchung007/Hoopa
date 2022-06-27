@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+
 import { createQuestion } from '../../store/questions';
+
+
+
 import './CreateQuestion.css';
 
 
@@ -23,10 +27,12 @@ const CreateQuestion = () => {
       title,
       description
     };
-
+    // console.log('helloooo');
     let createdQuestion = await dispatch(createQuestion(payload));
+    // console.log(createdQuestion);
     if (createdQuestion) {
-      history.push(`/questions`);
+      // console.log('HELPPPPPP----------------')
+      history.push(`/questions/${createdQuestion.id}`);
     }
   }
 
@@ -50,7 +56,7 @@ const CreateQuestion = () => {
           value={description}
         ></textarea>
       </div>
-      <button>Create new question</button>
+      <button type="submit">Create new question</button>
     </form>
   );
 

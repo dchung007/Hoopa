@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions } from "../../store/questions";
 import { NavLink, Switch, Route } from "react-router-dom";
 import CreateQuestion from "../CreateQuestion";
-import './QuestionsList.css';
+// import SingleQuestion from "../SingleQuestion";
 
-const QuestionsList = () => {
+import './HomePage.css';
+
+const HomePage = () => {
   const dispatch = useDispatch();
 
   const questions = useSelector(state => {
     return state.allQuestions;
   });
 
-  // console.log('--------------', questions, '-----------')
+  console.log('--------------', questions, '-----------')
 
   useEffect(() => {
     dispatch(getQuestions());
@@ -43,10 +45,20 @@ const QuestionsList = () => {
         })}
       </div>
       <div>
+        <NavLink to="/questions">All Questions</NavLink>
+      </div>
+      <div>
         <CreateQuestion />
       </div>
     </div>
   );
+  // return (
+  //   <>
+  //     <h1>whats up</h1>
+  //     <NavLink to="/questions">All Questions</NavLink>
+  //   </>
+
+  // )
 }
 
-export default QuestionsList;
+export default HomePage;

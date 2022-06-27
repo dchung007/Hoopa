@@ -6,6 +6,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import QuestionsList from "./components/QuestionsList.js";
+import SingleQuestion from "./components/SingleQuestion";
+import HomePage from "./components/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +29,17 @@ function App() {
           </Route>
         </Switch>
       )}
-      <QuestionsList />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/questions">
+          <QuestionsList />
+        </Route>
+        <Route exact path="/questions/:id">
+          <SingleQuestion />
+        </Route>
+      </Switch>
     </>
   );
 }
