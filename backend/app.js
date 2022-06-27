@@ -34,6 +34,7 @@ app.use(
 );
 
 // Set the _csrf token and create req.csrfToken method
+// Comment out when testing in the console
 app.use(
   csurf({
     cookie: {
