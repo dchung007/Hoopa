@@ -10,7 +10,7 @@ const loadQuestions = (questions) => ({
   questions
 });
 
-const createQuestion = (question) => ({
+const addQuestion = (question) => ({
   type: ADD_QUESTION,
   question
 });
@@ -35,15 +35,36 @@ export const getQuestions = () => async (dispatch) => {
   }
 }
 
-const initialState = { allQuestions: {} }
+export const createQuestion = (question) => async (dispatch) => {
+  const response = await fetch(`/api/questions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(question)
+  })
+
+  if (response.ok) {
+    const newQuestion = await response.json();
+    dispatch(addQuestion(newQuestion));
+    return newQuestion;
+  }
+}
+
+const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
     case LOAD_QUESTIONS:
-      const newState = { ...state, allQuestions: { ...state.allQuestions } };
+      newState = { ...state };
       action.questions.forEach(question => {
-        newState.allQuestions[question.id] = question;
+        newState[question.id] = question;
       });
+      return newState;
+    case ADD_QUESTION:
+      newState = { ...state };
+      newState[action.question.id] = action.question;
       return newState;
     default:
       return state;

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions } from "../../store/questions";
 import { NavLink, Switch } from "react-router-dom";
+import CreateQuestion from "../CreateQuestion";
 import './QuestionsList.css';
 
 const QuestionsList = () => {
   const dispatch = useDispatch();
 
   const questions = useSelector(state => {
-    return state.questions.allQuestions;
+    return state.allQuestions;
   });
 
   // console.log('--------------', questions, '-----------')
@@ -41,7 +42,9 @@ const QuestionsList = () => {
           )
         })}
       </div>
-      <div>yessir</div>
+      <div>
+        <CreateQuestion />
+      </div>
     </div>
   );
 }
