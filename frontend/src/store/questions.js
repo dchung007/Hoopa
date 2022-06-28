@@ -5,37 +5,37 @@ const ADD_QUESTION = 'questions/ADD_QUESTIONS';
 const EDIT_QUESTION = 'questions/EDIT_QUESTION';
 const REMOVE_QUESTION = 'questions/REMOVE_QUESTION';
 
-const loadQuestions = (questions) => ({
+const actionLoadQuestions = (questions) => ({
   type: LOAD_QUESTIONS,
   questions
 });
 
-const addQuestion = (question) => ({
+const actionAddQuestion = (question) => ({
   type: ADD_QUESTION,
   question
 });
 
-const editQuestion = (question) => ({
-  type: EDIT_QUESTION,
-  question
-});
+// const acrionEditQuestion = (question) => ({
+//   type: EDIT_QUESTION,
+//   question
+// });
 
-const removeQuestion = (question) => ({
+const actionRemoveQuestion = (questionId) => ({
   type: REMOVE_QUESTION,
-  question
+  questionId
 });
 
-export const getQuestions = () => async (dispatch) => {
+export const thunkGetQuestions = () => async (dispatch) => {
   const response = await csrfFetch(`/api/questions`);
 
   if (response.ok) {
     const questions = await response.json();
     // console.log(questions);
-    dispatch(loadQuestions(questions));
+    dispatch(actionLoadQuestions(questions));
   }
 }
 
-export const createQuestion = (question) => async (dispatch) => {
+export const thunkCreateQuestion = (question) => async (dispatch) => {
   const response = await csrfFetch(`/api/questions`, {
     method: 'POST',
     headers: {
@@ -47,44 +47,59 @@ export const createQuestion = (question) => async (dispatch) => {
   if (response.ok) {
     // console.log('response iss valid----------------')
     const newQuestion = await response.json();
-    dispatch(addQuestion(newQuestion));
+    dispatch(actionAddQuestion(newQuestion));
     // console.log(newQuestion)
     return newQuestion;
   }
 }
 
-// export const updateQuestion = (question) => async (dispatch) => {
-//   const response = await csrfFetch(`/api/questions/id`, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/JSON'
-//     },
-//     body: JSON.stringify(question)
-//   })
+export const thunkUpdateQuestion = (question) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/${question.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(question)
+  })
 
-//   if (response.ok) {
-//     const fixedQuestion = await response.json();
-//     dispatch(editQuestion(fixedQuestion));
-//     return fixedQuestion;
-//   }
-// }
+  if (response.ok) {
+    console.log("update please???????")
+    const fixedQuestion = await response.json();
+    dispatch(actionAddQuestion(fixedQuestion));
+    return fixedQuestion;
+  }
+}
 
+export const thunkDeleteQuestion = (questionId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/${questionId}`, {
+    method: 'DELETE',
+  });
+  if (response.ok) {
+    const { id: deletedQuestionId } = await response.json();
+    dispatch(actionRemoveQuestion(deletedQuestionId));
+    return deletedQuestionId;
+  }
+}
 
 const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
     case LOAD_QUESTIONS:
-      newState = { ...state };
+      //const newState1 = { ...state };
+      const newState1 = {};
       action.questions.forEach(question => {
-        newState[question.id] = question;
+        newState1[question.id] = question;
       });
-      return newState;
+      return newState1;
     case ADD_QUESTION:
-      newState = { ...state };
-      newState[action.question.id] = action.question;
-      return newState;
+      const newState2 = { ...state };
+      newState2[action.question.id] = action.question;
+      return newState2;
+    case REMOVE_QUESTION:
+      const newState3 = { ...state };
+      delete newState3[action.questionId];
+      return newState3;
     default:
       return state;
   }

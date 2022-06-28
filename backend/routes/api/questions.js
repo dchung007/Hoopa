@@ -34,8 +34,11 @@ questionsRouter.put('/:id(\\d+)', asyncHandler(async (req, res) => {
   return res.json(question);
 }));
 
-// questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
-
-// }));
+questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const question = await Question.findByPk(req.params.id);
+  const deletedId = question.id;
+  await question.destroy();
+  return res.json(deletedId);
+}));
 
 module.exports = questionsRouter;

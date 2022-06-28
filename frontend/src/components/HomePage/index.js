@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getQuestions } from "../../store/questions";
+import { thunkGetQuestions } from "../../store/questions";
 import { NavLink, Switch, Route } from "react-router-dom";
-import CreateQuestion from "../CreateQuestion";
-// import SingleQuestion from "../SingleQuestion";
 
 import './HomePage.css';
 
@@ -14,10 +12,10 @@ const HomePage = () => {
     return state.allQuestions;
   });
 
-  console.log('--------------', questions, '-----------')
+  // console.log('--------------', questions, '-----------')
 
   useEffect(() => {
-    dispatch(getQuestions());
+    dispatch(thunkGetQuestions());
   }, [dispatch]);
 
   return (
@@ -46,9 +44,6 @@ const HomePage = () => {
       </div>
       <div>
         <NavLink to="/questions">All Questions</NavLink>
-      </div>
-      <div>
-        <CreateQuestion />
       </div>
     </div>
   );
