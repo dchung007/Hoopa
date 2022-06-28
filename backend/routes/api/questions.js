@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
-const { Question } = db;
+const { Question, Answer, User } = db;
 
 const questionsRouter = express.Router();
 
@@ -40,5 +40,19 @@ questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
   await question.destroy();
   return res.json(deletedId);
 }));
+
+// Answers feature routes
+questionsRouter.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const answers = await Answer.findAll({
+    where: {
+      questionId: req.params.id
+    },
+    include: [User]
+  });
+  // console.log(answers);
+  return res.json(answers);
+}))
+
+
 
 module.exports = questionsRouter;

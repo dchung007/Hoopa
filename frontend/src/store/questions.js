@@ -1,8 +1,8 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS';
-const ADD_QUESTION = 'questions/ADD_QUESTIONS';
-const EDIT_QUESTION = 'questions/EDIT_QUESTION';
+const ADD_QUESTION = 'questions/ADD_QUESTION';
+// const EDIT_QUESTION = 'questions/EDIT_QUESTION';
 const REMOVE_QUESTION = 'questions/REMOVE_QUESTION';
 
 const actionLoadQuestions = (questions) => ({

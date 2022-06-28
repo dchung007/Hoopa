@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { thunkGetAnswers } from "../../store/answers";
 import { thunkDeleteQuestion, thunkGetQuestions } from "../../store/questions";
+import AnswersList from "../AnswersList";
 import EditQuestion from "../EditQuestion";
 
 const SingleQuestion = () => {
@@ -18,7 +20,7 @@ const SingleQuestion = () => {
   const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
-    dispatch(thunkGetQuestions())
+    dispatch(thunkGetQuestions());
   }, [dispatch])
 
 
@@ -47,7 +49,9 @@ const SingleQuestion = () => {
             </div>
           )
         }
-
+        <div>
+          <AnswersList />
+        </div>
       </div >
       :
       <div>Loading...</div>
