@@ -53,6 +53,23 @@ export const createQuestion = (question) => async (dispatch) => {
   }
 }
 
+// export const updateQuestion = (question) => async (dispatch) => {
+//   const response = await csrfFetch(`/api/questions/id`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/JSON'
+//     },
+//     body: JSON.stringify(question)
+//   })
+
+//   if (response.ok) {
+//     const fixedQuestion = await response.json();
+//     dispatch(editQuestion(fixedQuestion));
+//     return fixedQuestion;
+//   }
+// }
+
+
 const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {

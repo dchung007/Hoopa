@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import QuestionsList from "./components/QuestionsList.js";
 import SingleQuestion from "./components/SingleQuestion";
 import HomePage from "./components/HomePage";
+import EditQuestion from "./components/EditQuestion";
 
 function App() {
   const dispatch = useDispatch();
