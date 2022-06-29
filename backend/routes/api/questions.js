@@ -6,7 +6,9 @@ const { Question, Answer, User } = db;
 const questionsRouter = express.Router();
 
 questionsRouter.get('/', asyncHandler(async (req, res) => {
-  const questions = await Question.findAll();
+  const questions = await Question.findAll({
+    include: [User]
+  });
   // console.log(questions);
   return res.json(questions);
 }));
@@ -53,6 +55,15 @@ questionsRouter.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   return res.json(answers);
 }))
 
-
+questionsRouter.post('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const { userId, questionId, answer } = req.body;
+  const newAnswer = await Answer.create({
+    userId,
+    questionId,
+    answer
+  })
+  // console.log(newAnswer)
+  return res.json(newAnswer);
+}));
 
 module.exports = questionsRouter;

@@ -1,13 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { thunkGetAnswers } from "../../store/answers";
+
+import CreateAnswer from "../CreateAnswer.js";
 // const db = require("../../../../backend/db");
 // const { Question, Answer } = db;
 
 const AnswersList = () => {
   const { id } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
+  const [showForm, setShowForm] = useState(false);
+
   const answers = useSelector(state => state.answers);
   // console.log(answers);
   const sessionUser = useSelector(state => state.session.user);
@@ -18,23 +23,38 @@ const AnswersList = () => {
     dispatch(thunkGetAnswers(id));
   }, [dispatch]);
 
-  const getUser = (userId) => {
+  const onDelete = async () => {
+    await dispatch();
+    // const reloaded = await dispatch(thunkGetQuestions());
+    await history.push('/questions');
 
   }
-
   return (
     <div>
       <h2>Answers</h2>
       <div>
         {Object.values(answers).map((answer) => {
           return (
-            <div>
+            <div key={answer.id}>
               <div>
-                {answer.User.username}
+                {answer.User?.username}
               </div>
               <div>
                 {answer.answer}
               </div>
+              {
+                +sessionUser?.id === answer.userId &&
+                (
+                  <div>
+                    <div>
+                      <button>Edit answer</button>
+                    </div>
+                    <div>
+                      <button onClick={() => onDelete()}>Delete Answer</button>
+                    </div>
+                  </div>
+                )
+              }
               <div>
                 __________________________________________________________________________
               </div>
@@ -42,7 +62,16 @@ const AnswersList = () => {
           )
         })}
       </div>
-    </div>
+      <div>
+        <button onClick={() => setShowForm(true)}>Create new Answer</button>
+      </div>
+      {
+        showForm &&
+        <div>
+          <CreateAnswer hideForm={() => setShowForm(false)} />
+        </div>
+      }
+    </div >
   );
 }
 

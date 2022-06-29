@@ -55,22 +55,22 @@ export const thunkCreateAnswer = (answer) => async (dispatch) => {
   }
 }
 
-export const thunkUpdateQuestion = (answer) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${answer.questionid}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/JSON'
-    },
-    body: JSON.stringify(answer)
-  })
+// export const thunkUpdateQuestion = (answer) => async (dispatch) => {
+//   const response = await csrfFetch(`/api/questions/${answer.questionid}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/JSON'
+//     },
+//     body: JSON.stringify(answer)
+//   })
 
-  if (response.ok) {
-    console.log("update answer please???????")
-    const fixedAnswer = await response.json();
-    dispatch(actionAddAnswer(fixedAnswer));
-    return fixedAnswer;
-  }
-}
+//   if (response.ok) {
+//     console.log("update answer please???????")
+//     const fixedAnswer = await response.json();
+//     dispatch(actionAddAnswer(fixedAnswer));
+//     return fixedAnswer;
+//   }
+// }
 
 export const thunkDeleteQuestion = (answer) => async (dispatch) => {
   const response = await csrfFetch(`/api/questions/${answer.questionId}`, {
