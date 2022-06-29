@@ -37,10 +37,18 @@ questionsRouter.put('/:id(\\d+)', asyncHandler(async (req, res) => {
 }));
 
 questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const question = await Question.findByPk(req.params.id);
-  const deletedId = question.id;
-  await question.destroy();
-  return res.json(deletedId);
+  if (req.body.title) {
+    const question = await Question.findByPk(req.params.id);
+    const deletedId = question.id;
+    await question.destroy();
+    return res.json(deletedId);
+  }
+  if (req.body.answer) {
+    const answer = await Answer.findByPk(req.body.answer.id);
+    const deletedId = answer.id;
+    await answer.destroy();
+    return res.json(deletedId);
+  }
 }));
 
 // Answers feature routes

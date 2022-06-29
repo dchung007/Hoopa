@@ -72,9 +72,13 @@ export const thunkCreateAnswer = (answer) => async (dispatch) => {
 //   }
 // }
 
-export const thunkDeleteQuestion = (answer) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${answer.questionId}`, {
+export const thunkDeleteAnswer = (answer) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/${answer.answer.questionId}`, {
     method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(answer)
   });
   if (response.ok) {
     const { id: deletedAnswerId } = await response.json();

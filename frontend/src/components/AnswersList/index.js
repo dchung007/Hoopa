@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { thunkGetAnswers } from "../../store/answers";
+import { thunkDeleteAnswer, thunkGetAnswers } from "../../store/answers";
 
 import CreateAnswer from "../CreateAnswer.js";
 // const db = require("../../../../backend/db");
 // const { Question, Answer } = db;
 
 const AnswersList = () => {
-  const { id } = useParams();
+  const { id: questionId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false);
@@ -20,13 +20,15 @@ const AnswersList = () => {
 
 
   useEffect(() => {
-    dispatch(thunkGetAnswers(id));
+    dispatch(thunkGetAnswers(questionId));
   }, [dispatch]);
 
-  const onDelete = async () => {
-    await dispatch();
+  const onDelete = async (answer) => {
+    console.log(answer)
+    await dispatch(thunkDeleteAnswer(answer));
     // const reloaded = await dispatch(thunkGetQuestions());
-    await history.push('/questions');
+    await dispatch(thunkGetAnswers(questionId));
+    await history.push(`/questions/${questionId}`);
 
   }
   return (
@@ -50,7 +52,7 @@ const AnswersList = () => {
                       <button>Edit answer</button>
                     </div>
                     <div>
-                      <button onClick={() => onDelete()}>Delete Answer</button>
+                      <button onClick={() => onDelete({ answer })}>Delete Answer</button>
                     </div>
                   </div>
                 )
