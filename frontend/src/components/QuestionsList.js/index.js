@@ -7,12 +7,12 @@ import './QuestionsList.css';
 
 const QuestionsList = () => {
   const dispatch = useDispatch();
+  const [showForm, setShowForm] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
   const questions = useSelector(state => {
     return state.allQuestions;
   });
   // console.log('--------------', questions, '-----------')
-
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     dispatch(thunkGetQuestions());
@@ -45,14 +45,20 @@ const QuestionsList = () => {
           )
         })}
       </div>
-      <div>
-        <button onClick={() => setShowForm(true)}>Create new Question</button>
-      </div>
       {
-        showForm &&
-        <div>
-          <CreateQuestion hideForm={() => setShowForm(false)} />
-        </div>
+        sessionUser?.id && (
+          <div>
+            <div>
+              <button onClick={() => setShowForm(true)}>Create new Question</button>
+            </div>
+            {
+              showForm &&
+              <div>
+                <CreateQuestion hideForm={() => setShowForm(false)} />
+              </div>
+            }
+          </div>
+        )
       }
     </div >
   );

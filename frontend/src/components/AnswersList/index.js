@@ -64,14 +64,20 @@ const AnswersList = () => {
           )
         })}
       </div>
-      <div>
-        <button onClick={() => setShowForm(true)}>Create new Answer</button>
-      </div>
       {
-        showForm &&
-        <div>
-          <CreateAnswer hideForm={() => setShowForm(false)} />
-        </div>
+        sessionUser?.id && (
+          <div>
+            <div>
+              <button onClick={() => setShowForm(true)}>Create new Answer</button>
+            </div>
+            {
+              showForm &&
+              <div>
+                <CreateAnswer hideForm={() => setShowForm(false)} />
+              </div>
+            }
+          </div>
+        )
       }
     </div >
   );
