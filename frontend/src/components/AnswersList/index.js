@@ -24,7 +24,7 @@ const AnswersList = () => {
   }, [dispatch]);
 
   const onDelete = async (answer) => {
-    console.log(answer)
+    // console.log(answer)
     await dispatch(thunkDeleteAnswer(answer));
     // const reloaded = await dispatch(thunkGetQuestions());
     await dispatch(thunkGetAnswers(questionId));
@@ -48,9 +48,6 @@ const AnswersList = () => {
                 +sessionUser?.id === answer.userId &&
                 (
                   <div>
-                    <div>
-                      <button>Edit answer</button>
-                    </div>
                     <div>
                       <button onClick={() => onDelete({ answer })}>Delete Answer</button>
                     </div>
