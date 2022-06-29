@@ -1,8 +1,8 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS';
-const ADD_QUESTION = 'questions/ADD_QUESTIONS';
-const EDIT_QUESTION = 'questions/EDIT_QUESTION';
+const ADD_QUESTION = 'questions/ADD_QUESTION';
+// const EDIT_QUESTION = 'questions/EDIT_QUESTION';
 const REMOVE_QUESTION = 'questions/REMOVE_QUESTION';
 
 const actionLoadQuestions = (questions) => ({
@@ -70,10 +70,15 @@ export const thunkUpdateQuestion = (question) => async (dispatch) => {
   }
 }
 
-export const thunkDeleteQuestion = (questionId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${questionId}`, {
+export const thunkDeleteQuestion = (question) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/${question.id}`, {
     method: 'DELETE',
-  });
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(question)
+  },
+  );
   if (response.ok) {
     const { id: deletedQuestionId } = await response.json();
     dispatch(actionRemoveQuestion(deletedQuestionId));

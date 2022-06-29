@@ -1,31 +1,33 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { thunkGetAnswers } from "../../store/answers";
 import { thunkDeleteQuestion, thunkGetQuestions } from "../../store/questions";
+import AnswersList from "../AnswersList";
 import EditQuestion from "../EditQuestion";
 
 const SingleQuestion = () => {
   const [showForm, setShowForm] = useState();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id: questionId } = useParams();
   // console.log(id);
   const history = useHistory();
 
   const questions = useSelector(state => {
     return state.allQuestions;
   });
-  const question = questions[id];
+  const question = questions[questionId];
   const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
-    dispatch(thunkGetQuestions())
+    dispatch(thunkGetQuestions());
   }, [dispatch])
 
 
   const onDelete = async () => {
-    await dispatch(thunkDeleteQuestion(id));
+    await dispatch(thunkDeleteQuestion(question));
     // const reloaded = await dispatch(thunkGetQuestions());
-    await history.push('/questions');
+    await history.push(`/questions`);
 
   }
 
@@ -47,7 +49,9 @@ const SingleQuestion = () => {
             </div>
           )
         }
-
+        <div>
+          <AnswersList />
+        </div>
       </div >
       :
       <div>Loading...</div>

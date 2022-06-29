@@ -28,6 +28,9 @@ const QuestionsList = () => {
               <NavLink to={`/questions/${question.id}`}>
                 <div>
                   <div>
+                    {question.User?.username}
+                  </div>
+                  <div>
                     {question.title}
                   </div>
                   <div>
