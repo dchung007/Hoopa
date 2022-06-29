@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkDeleteAnswer, thunkGetAnswers } from "../../store/answers";
 
-import CreateAnswer from "../CreateAnswer.js";
+import CreateAnswer from "../CreateAnswer/index.js";
 // const db = require("../../../../backend/db");
 // const { Question, Answer } = db;
 
