@@ -81,7 +81,9 @@ export const thunkDeleteAnswer = (answer) => async (dispatch) => {
     body: JSON.stringify(answer)
   });
   if (response.ok) {
-    const { id: deletedAnswerId } = await response.json();
+    // const { deletedId: deletedAnswerId } = await response.json();
+    const deletedAnswerId = await response.json();
+    // console.log(deletedAnswerId)
     dispatch(actionRemoveAnswer(deletedAnswerId));
     return deletedAnswerId;
   }
