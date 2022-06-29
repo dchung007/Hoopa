@@ -5,10 +5,12 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import QuestionsList from "./components/QuestionsList.js";
+import QuestionsList from "./components/QuestionsList/index.js";
 import SingleQuestion from "./components/SingleQuestion";
 import HomePage from "./components/HomePage";
 import EditQuestion from "./components/EditQuestion";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,9 +42,14 @@ function App() {
         <Route exact path="/questions/:id">
           <SingleQuestion />
         </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
       </Switch>
 
-      
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
