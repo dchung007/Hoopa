@@ -5,9 +5,11 @@ Welcome to Hoopa, a clone of the popular [Quora](https://www.quora.com/) website
 
 
 ## How To Start Development Enivornment
-Use the following command inside of the directory you want the project to be in:
+1. Use the following command inside of the directory you want the project to be in:
 git clone "git@github.com:dchung007/Hoopa.git"
-
+2. Once the project is properly cloned, open it up and create two separate terminals- one cd into the frontend directory and the other cd into the backend directory. 
+3. Use the command "npm install" in both terminals.
+4. Use the command "npm start" in both terminals to start up the server and access the localhost website version (separate from thr heroku hosted site).
 
 ## Technologies Used
 Languages: Javascript, HTML, CSS
