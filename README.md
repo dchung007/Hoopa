@@ -6,7 +6,7 @@ Welcome to Hoopa, a clone of the popular [Quora](https://www.quora.com/) website
 
 ## How To Start Development Enivornment
 Use the following command inside of the directory you want the project to be in:
-git clone git@github.com:dchung007/Hoopa.git
+git clone "git@github.com:dchung007/Hoopa.git"
 
 
 ## Technologies Used
