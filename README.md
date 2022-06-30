@@ -10,11 +10,11 @@ git clone "git@github.com:dchung007/Hoopa.git"
 
 
 ## Technologies Used
-[]Languages: Javascript, HTML, CSS
-[]Front-End: React, JSX
-[]Back-End: Express, Javascript
-[]Database: PostgreSQL
-[]Hosting: Heroku
+Languages: Javascript, HTML, CSS
+Front-End: React, JSX
+Back-End: Express, Javascript
+Database: PostgreSQL
+Hosting: Heroku
 
 ## Link to live site
 https://hoopa.herokuapp.com/
