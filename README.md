@@ -35,7 +35,7 @@ All users, even those without an account can view any and all questions.
 ### Creating, viewing, editing, and deleting Questions
 All logged-in users can create their own questions. They can also edit and delete their questions, but only the ones they themselves posted.
 
-### Creating, viewing and deleting Reviews
+### Creating, viewing and deleting Answers
 All logged-in users can post their own answers on any question. They can also delete only their own answers.
 
 ## Challenges Faced
