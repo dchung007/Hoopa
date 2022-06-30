@@ -25,6 +25,17 @@ const actionRemoveQuestion = (questionId) => ({
   questionId
 });
 
+export const thunkGetSomeQuestions = () => async (dispatch) => {
+  const response = await csrfFetch(`/api`);
+
+  if (response.ok) {
+    const questions = await response.json();
+    // console.log(questions);
+    dispatch(actionLoadQuestions(questions));
+  }
+}
+
+
 export const thunkGetQuestions = () => async (dispatch) => {
   const response = await csrfFetch(`/api/questions`);
 

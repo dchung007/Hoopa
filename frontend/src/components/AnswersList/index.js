@@ -27,8 +27,8 @@ const AnswersList = () => {
     // console.log(answer)
     await dispatch(thunkDeleteAnswer(answer));
     // const reloaded = await dispatch(thunkGetQuestions());
-    await dispatch(thunkGetAnswers(questionId));
-    await history.push(`/questions/${questionId}`);
+    // await dispatch(thunkGetAnswers(questionId));
+    // await history.push(`/questions/${questionId}`);
 
   }
   return (

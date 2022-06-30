@@ -37,41 +37,48 @@ questionsRouter.put('/:id(\\d+)', asyncHandler(async (req, res) => {
 }));
 
 questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
-  if (req.body.title) {
-    const question = await Question.findByPk(req.params.id);
-    const deletedId = question.id;
-    await question.destroy();
-    return res.json(deletedId);
-  }
-  if (req.body.answer) {
-    const answer = await Answer.findByPk(req.body.answer.id);
-    const deletedId = answer.id;
-    await answer.destroy();
-    return res.json(deletedId);
-  }
+  const question = await Question.findByPk(req.params.id);
+  const deletedId = question.id;
+  await question.destroy();
+  return res.json(deletedId);
 }));
 
-// Answers feature routes
-questionsRouter.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const answers = await Answer.findAll({
-    where: {
-      questionId: req.params.id
-    },
-    include: [User]
-  });
-  // console.log(answers);
-  return res.json(answers);
-}))
+// questionsRouter.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+//   if (req.body.title) {
+//     const question = await Question.findByPk(req.params.id);
+//     const deletedId = question.id;
+//     await question.destroy();
+//     return res.json(deletedId);
+//   }
+//   if (req.body.answer) {
+//     const answer = await Answer.findByPk(req.body.answer.id);
+//     const deletedId = answer.id;
+//     await answer.destroy();
+//     return res.json(deletedId);
+//   }
+// }));
 
-questionsRouter.post('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const { userId, questionId, answer } = req.body;
-  const newAnswer = await Answer.create({
-    userId,
-    questionId,
-    answer
-  })
-  // console.log(newAnswer)
-  return res.json(newAnswer);
-}));
+// // Answers feature routes
+// questionsRouter.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+//   const answers = await Answer.findAll({
+//     where: {
+//       questionId: req.params.id
+//     },
+//     include: [User]
+//   });
+//   // console.log(answers);
+//   return res.json(answers);
+// }))
+
+// questionsRouter.post('/:id(\\d+)', asyncHandler(async (req, res) => {
+//   const { userId, questionId, answer } = req.body;
+//   const newAnswer = await Answer.create({
+//     userId,
+//     questionId,
+//     answer
+//   })
+//   // console.log(newAnswer)
+//   return res.json(newAnswer);
+// }));
 
 module.exports = questionsRouter;

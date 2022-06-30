@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetQuestions } from "../../store/questions";
-import { NavLink, Switch, Route } from "react-router-dom";
+import { thunkGetSomeQuestions } from "../../store/questions";
+import { NavLink} from "react-router-dom";
 
 import './HomePage.css';
 
@@ -15,7 +15,7 @@ const HomePage = () => {
   // console.log('--------------', questions, '-----------')
 
   useEffect(() => {
-    dispatch(thunkGetQuestions());
+    dispatch(thunkGetSomeQuestions());
   }, [dispatch]);
 
   return (
