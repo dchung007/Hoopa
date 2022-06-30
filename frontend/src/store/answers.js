@@ -28,7 +28,7 @@ const actionRemoveAnswer = (answerId) => ({
 
 // thunk action creators
 export const thunkGetAnswers = (questionId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${questionId}`);
+  const response = await csrfFetch(`/api/answers/${questionId}`);
 
   if (response.ok) {
     const answers = await response.json();
@@ -38,7 +38,7 @@ export const thunkGetAnswers = (questionId) => async (dispatch) => {
 }
 
 export const thunkCreateAnswer = (answer) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${answer.questionId}`, {
+  const response = await csrfFetch(`/api/answers/${answer.questionId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/JSON'
@@ -73,7 +73,9 @@ export const thunkCreateAnswer = (answer) => async (dispatch) => {
 // }
 
 export const thunkDeleteAnswer = (answer) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${answer.answer.questionId}`, {
+  // console.log(answer)
+  // console.log(answer.id)
+  const response = await csrfFetch(`/api/answers/${answer.answer.questionId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/JSON'

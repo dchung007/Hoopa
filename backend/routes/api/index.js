@@ -4,6 +4,7 @@ const usersRouter = require('./users.js');
 const questionsRouter = require('./questions');
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
+const answersRouter = require('./answers.js');
 
 const { Question } = db;
 
@@ -12,6 +13,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/questions', questionsRouter);
+
+router.use('/answers', answersRouter);
 
 router.get('/', asyncHandler(async (req, res) => {
   const questions = await Question.findAll({
