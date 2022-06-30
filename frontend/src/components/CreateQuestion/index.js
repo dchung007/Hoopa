@@ -12,6 +12,7 @@ const CreateQuestion = ({ hideForm }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
+  const [onSubmit, setOnSubmit] = useState(false)
 
   const sessionUser = useSelector(state => state.session.user);
   // console.log(sessionUser.id);
@@ -20,7 +21,7 @@ const CreateQuestion = ({ hideForm }) => {
     const errors = [];
     if (title.length > 250) errors.push("Title cannot exceed 250 characters.");
     if (title.length < 5) errors.push("Title must exceed 5 characters.");
-    if (description.length > 1000) errors.push("Description cannot exceed 1000 characters.");
+    if (description.length > 500) errors.push("Description cannot exceed 500 characters.");
     if (description.length < 5) errors.push("Description must exceed 5 characters.")
 
     setValidationErrors(errors);
@@ -29,24 +30,29 @@ const CreateQuestion = ({ hideForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      ownerId: sessionUser.id,
-      title,
-      description
-    };
-    // console.log('helloooo');
-    let createdQuestion = await dispatch(thunkCreateQuestion(payload));
-    // console.log(createdQuestion);
-    if (createdQuestion) {
-      // console.log('HELPPPPPP----------------')
-      history.push(`/questions/${createdQuestion.id}`)
+    if (validationErrors.length > 0) {
+      setOnSubmit(true);
+    } else {
+      const payload = {
+        ownerId: sessionUser.id,
+        title,
+        description
+      };
+      // console.log('helloooo');
+      let createdQuestion = await dispatch(thunkCreateQuestion(payload));
+      // console.log(createdQuestion);
+      if (createdQuestion) {
+        // console.log('HELPPPPPP----------------')
+        history.push(`/questions/${createdQuestion.id}`)
+      }
     }
+
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <ul className="errors">
-        {
+        {onSubmit &&
           validationErrors.map(error => (
             <li key={error}>{error}</li>
           ))
@@ -74,7 +80,6 @@ const CreateQuestion = ({ hideForm }) => {
       </div>
       <button
         type="submit"
-        disabled={!!validationErrors.length}
       >
         Submit new question
       </button>

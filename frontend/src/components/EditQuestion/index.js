@@ -15,6 +15,7 @@ const EditQuestion = ({ question, hideForm }) => {
   const [description, setDescription] = useState(question?.description);
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
+  const [onSubmit, setOnSubmit] = useState(false);
 
   useEffect(() => {
     const errors = [];
@@ -30,26 +31,25 @@ const EditQuestion = ({ question, hideForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      ...question,
-      title,
-      description
-    };
-    // // console.log('helloooo');
-    const updatedQuestion = await dispatch(thunkUpdateQuestion(payload));
-    setShowForm(false);
-    // // console.log(createdQuestion);
-    // if (createdQuestion) {
-    //   // console.log('HELPPPPPP----------------')
-    //   history.push(`/questions/${createdQuestion.id}`);
-    // }
+    if (validationErrors.length > 0) {
+      setOnSubmit(true);
+    } else {
+      const payload = {
+        ...question,
+        title,
+        description
+      };
+      // // console.log('helloooo');
+      const updatedQuestion = await dispatch(thunkUpdateQuestion(payload));
+      setShowForm(false);
+    }
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <ul className="errors">
-          {
+          {onSubmit &&
             validationErrors.map(error => (
               <li key={error}>{error}</li>
             ))
@@ -77,7 +77,6 @@ const EditQuestion = ({ question, hideForm }) => {
         </div>
         <button
           type="submit"
-          disabled={!!validationErrors.length}
         >
           Submit edit
         </button>
