@@ -18,7 +18,7 @@ router.use('/answers', answersRouter);
 
 router.get('/', asyncHandler(async (req, res) => {
   const questions = await Question.findAll({
-    limit: 10
+    limit: 15
   });
   // console.log(questions);
   return res.json(questions);
