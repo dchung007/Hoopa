@@ -11,7 +11,7 @@ const Footer = () => {
           <img className="logo" src={githubLogo} />
         </a>
       </div>
-      <div className="navLink">
+      <div className="footer-aboutme">
         <NavLink to="/about">About Me</NavLink>
       </div>
       <div className="footer-logos">

@@ -11,6 +11,7 @@ import HomePage from "./components/HomePage";
 import EditQuestion from "./components/EditQuestion";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import './app.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,10 +25,10 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
         </Switch>
@@ -45,11 +46,18 @@ function App() {
         <Route exact path="/about">
           <About />
         </Route>
+        <Route exact path="/login">
+        </Route>
+        <Route exact path="/signup">
+        </Route>
+        <Route>
+          <h1 className="page-not-found">404 Error: Page does not exist</h1>
+        </Route>
       </Switch>
 
-      <footer>
+
         <Footer />
-      </footer>
+
     </>
   );
 }

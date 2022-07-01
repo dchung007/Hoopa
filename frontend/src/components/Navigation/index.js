@@ -24,22 +24,46 @@ function Navigation({ isLoaded }) {
     );
   } else {
     sessionLinks = (
-      <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-        <button onClick={DemoLogin}>Demo user</button>
-      </>
+      <div className='nav-links-list'>
+        <span className='single-nav-link'>
+          <NavLink to="/login">Log In</NavLink>
+        </span>
+        <span className='single-nav-link'>
+          <NavLink to="/signup">Sign Up</NavLink>
+        </span>
+        <span className='single-nav-link'>
+          <button className='menu-buttons' onClick={DemoLogin}>Demo user</button>
+        </span>
+      </div>
     );
   }
 
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <nav className="navbar">
+      <div className="logo">
+        <NavLink to="/">
+          <img id="logo-pic" src="../../images/favicon.ico" />oopa
+        </NavLink>
+      </div>
+      <div>
+        <ul className='nav-links'>
+          <input type="checkbox" id="checkbox-toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div className='menu'>
+            <div>
+              <NavLink exact to="/">Home</NavLink>
+            </div>
+            <div>
+              <NavLink to="/questions">Questions</NavLink>
+            </div>
+            {isLoaded && sessionLinks}
+          </div>
+
+
+        </ul>
+      </div>
+    </nav>
   );
 }
 
