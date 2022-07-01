@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-aboutme">
         <NavLink to="/about">About Me</NavLink>
       </div>
-      <div className="footer-logos">
+      <div className="footer-logos" id="footer-logo-linkedIn">
         <a href="https://www.linkedin.com/in/david-chung-98a5651aa/">
           <img className="logo" src={linkedinLogo} />
         </a>

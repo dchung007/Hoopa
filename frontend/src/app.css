@@ -3,6 +3,19 @@ h1.page-not-found {
   justify-content: center;
 }
 
-footer {
-  margin-top: auto;
+#holder {
+  min-height: 100%;
+  position: relative;
+}
+
+div.body-div {
+  padding-bottom: 100px;
+}
+
+div.footer-div {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }

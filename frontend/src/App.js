@@ -21,44 +21,50 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+    <div id="holder">
+      <div className="nav-bar-div">
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <Switch>
+            <Route exact path="/login">
+              <LoginFormPage />
+            </Route>
+            <Route exact path="/signup">
+              <SignupFormPage />
+            </Route>
+          </Switch>
+        )}
+      </div>
+
+      <div className="body-div">
         <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/questions">
+            <QuestionsList />
+          </Route>
+          <Route exact path="/questions/:id">
+            <SingleQuestion />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
           <Route exact path="/login">
-            <LoginFormPage />
           </Route>
           <Route exact path="/signup">
-            <SignupFormPage />
+          </Route>
+          <Route>
+            <h1 className="page-not-found">404 Error: Page does not exist</h1>
           </Route>
         </Switch>
-      )}
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route exact path="/questions">
-          <QuestionsList />
-        </Route>
-        <Route exact path="/questions/:id">
-          <SingleQuestion />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/login">
-        </Route>
-        <Route exact path="/signup">
-        </Route>
-        <Route>
-          <h1 className="page-not-found">404 Error: Page does not exist</h1>
-        </Route>
-      </Switch>
+      </div>
 
-
+      <div className="footer-div">
         <Footer />
+      </div>
 
-    </>
+    </div>
   );
 }
 
