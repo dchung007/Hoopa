@@ -109,3 +109,7 @@ button.menu-buttons {
   cursor: pointer;
   outline: inherit;
 }
+
+div.form-div {
+  border-radius: 15px;
+}

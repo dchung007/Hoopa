@@ -27,7 +27,7 @@ function LoginFormPage() {
 
   return (
 
-    <div>
+    <div className='form-div'>
       <form className="login-form" onSubmit={handleSubmit}>
         <ul className='login-form-list'>
           <ul>
