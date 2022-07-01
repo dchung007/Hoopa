@@ -46,7 +46,7 @@ const EditQuestion = ({ question, hideForm }) => {
   }
 
   return (
-    <div>
+    <div className="form-div">
       <form onSubmit={handleSubmit}>
         <ul className="errors">
           {onSubmit &&
@@ -76,11 +76,13 @@ const EditQuestion = ({ question, hideForm }) => {
           ></textarea>
         </div>
         <button
+          className="form-button"
           type="submit"
         >
           Submit edit
         </button>
         <button
+          className="form-button"
           onClick={() => setShowForm(false)}
         >
           Cancel

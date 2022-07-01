@@ -32,11 +32,12 @@ nav.navbar {
 }
 
 /* Logo */
-.logo {
+div.logo {
   font-size: 32px;
   color: orangered;
   font-weight: 700;
   text-decoration: none;
+  margin-bottom: 15px;
 }
 
 #logo-pic {
