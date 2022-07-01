@@ -41,14 +41,14 @@ form.login-form {
   border-radius: 10px;
   ;
 }
-
+/* 
 .login-form-list input[type=text]:focus,
 .login-form-list input[type=password]:focus {
   -moz-box-shadow: 0 0 8px orange;
-  -webkit-box-shadow: 0 0 8px #88D5E9;
-  box-shadow: 0 0 8px #88D5E9;
-  border: 1px solid #88D5E9;
-}
+  -webkit-box-shadow: 0 0 8px orange;
+  box-shadow: 0 0 8px orange;
+  border: 1px solid orange;
+} */
 
 /* .login-form-list .field-divided {
   width: 49%;
@@ -88,10 +88,10 @@ form.login-form {
 }
 
 button.login-button {
-  background: #0066A2;
+  background: orange;
   color: white;
   border-style: outset;
-  border-color: #0066A2;
+  border-color: orangered;
   height: 30px;
   width: 100px;
   font: bold15px arial, sans-serif;
@@ -110,6 +110,14 @@ button.menu-buttons {
   outline: inherit;
 }
 
-div.form-div {
+/* div.form-div {
+  background-color:orange;
+  border: solid orangered 5px;
   border-radius: 15px;
+} */
+
+div.form-title {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  text-align: center;
+  width: 200px;
 }

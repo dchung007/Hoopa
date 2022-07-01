@@ -29,6 +29,14 @@ function LoginFormPage() {
 
     <div className='form-div'>
       <form className="login-form" onSubmit={handleSubmit}>
+        <div className='form-title'>
+          <h1>
+            Hoopa
+          </h1>
+          <h4>
+            Real hoopers know.
+          </h4>
+        </div>
         <ul className='login-form-list'>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -57,7 +65,7 @@ function LoginFormPage() {
               />
             </label>
           </li>
-          <li>
+          <li className='login-button'>
             <button className='login-button' type="submit">Log In</button>
           </li>
         </ul>

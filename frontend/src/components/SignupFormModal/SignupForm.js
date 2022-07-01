@@ -31,8 +31,15 @@ function SignupFormPage() {
 
   return (
     <div>
-      <div></div>
       <form className="login-form" onSubmit={handleSubmit}>
+        <div className='form-title'>
+          <h1>
+            Hoopa
+          </h1>
+          <h4>
+            A place to share knowledge and better understand the game.
+          </h4>
+        </div>
         <ul className='login-form-list'>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}

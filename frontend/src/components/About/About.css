@@ -1,0 +1,21 @@
+img {
+  height: 250px;
+  margin-top: 25px;
+}
+
+div.about-section {
+  display: flex;
+  padding: 30px;
+}
+
+div.about-text-1 {
+  margin-right: 100px
+}
+
+div.about-text-2 {
+  margin-left: 100px
+}
+
+h1 {
+  margin-bottom: 10px;
+}
