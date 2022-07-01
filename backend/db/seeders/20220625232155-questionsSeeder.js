@@ -16,7 +16,7 @@ module.exports = {
       { ownerId: 1, title: 'Who is the GOAT?', description: 'You can only consider people who played after the 1970s.' },
       { ownerId: 3, title: 'Who is the best point guard ever?', description: 'No, you can not include Lebron James as a point guard.' },
       { ownerId: 1, title: 'What is your all time starting five?', description: 'You cannot put players out of position.' },
-      { ownerId: 2, title: 'What is the greatest team ever?', description: 'From the 1996 bulls to the 2017 warriors, there are truly a plethora of options to choocse from- but you must choose ONE.' },
+      { ownerId: 2, title: 'What is the greatest team ever?', description: 'From the 1996 bulls to the 2017 warriors, there are truly a plethora of options to choose from- but you must choose ONE.' },
       { ownerId: 1, title: 'Game on the line, one shot, who would you take?', description: 'Any player from any era is on the table.' },
       { ownerId: 4, title: 'Who is the biggest draft steal ever?', description: 'You can also include undrafted players if you feel like it.' },
       { ownerId: 7, title: 'Who is the most skilled player ever?', description: 'By skill, I do not consider freakish athletic ability or ridiculous body types.' },

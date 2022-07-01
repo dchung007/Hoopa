@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import './Navigation.css';
+import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from '../../store/session';
+import SignupFormModal from '../SignupFormModal';
+import './Navigation.css';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -26,10 +28,12 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className='nav-links-list'>
         <span className='single-nav-link'>
-          <NavLink to="/login">Log In</NavLink>
+          <LoginFormModal />
+          {/* <NavLink to="/login">Log In</NavLink> */}
         </span>
         <span className='single-nav-link'>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <SignupFormModal />
+          {/* <NavLink to="/signup">Sign Up</NavLink> */}
         </span>
         <span className='single-nav-link'>
           <button className='menu-buttons' onClick={DemoLogin}>Demo user</button>
