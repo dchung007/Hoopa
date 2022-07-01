@@ -1,15 +1,18 @@
-footer {
+/* footer {
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
   text-align: center;
-}
+} */
 
 div.footer {
   display: flex;
   justify-content: space-evenly;
+  padding: 10px 10px 0px 10px;
+  height: 40px;
+  background: orange;
 }
 
 div.footer-logos {
@@ -21,6 +24,6 @@ img.logo {
   width: 25px;
 }
 
-NavLink {
-  text-decoration: none;
+.footer-aboutme {
+  color: orangered
 }
