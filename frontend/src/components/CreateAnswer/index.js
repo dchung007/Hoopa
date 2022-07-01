@@ -48,33 +48,39 @@ const CreateAnswer = ({ hideForm }) => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <ul className="errors">
-        {onSubmit &&
-          validationErrors.map(error => (
-            <li key={error}>{error}</li>
-          ))
-        }
-      </ul>
-      <div>
-        <label htmlFor="answer">Answer:</label>
-        <textarea
-          id="answer"
-          name="answer"
-          onChange={e => setAnswer(e.target.value)}
-          value={answer}
-          required
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-      >
-        Submit new answer
-      </button>
-      <button onClick={() => hideForm()}>
-        Cancel
-      </button>
-    </form>
+    <div className="form-div">
+      <form onSubmit={handleSubmit}>
+        <ul className="errors">
+          {onSubmit &&
+            validationErrors.map(error => (
+              <li key={error}>{error}</li>
+            ))
+          }
+        </ul>
+        <div>
+          <label htmlFor="answer">Answer:</label>
+          <textarea
+            id="answer"
+            name="answer"
+            onChange={e => setAnswer(e.target.value)}
+            value={answer}
+            required
+          ></textarea>
+        </div>
+        <button
+          className="form-button"
+          type="submit"
+        >
+          Submit new answer
+        </button>
+        <button
+          className="form-button"
+          onClick={() => hideForm()}>
+          Cancel
+        </button>
+      </form>
+    </div>
+
   );
 }
 

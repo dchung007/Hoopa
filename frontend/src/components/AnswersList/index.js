@@ -32,7 +32,7 @@ const AnswersList = () => {
 
   }
   return (
-    <div>
+    <div className="body-container">
       <h2>Answers</h2>
       <div>
         {Object.values(answers).map((answer) => {
@@ -49,7 +49,7 @@ const AnswersList = () => {
                 (
                   <div>
                     <div>
-                      <button onClick={() => onDelete({ answer })}>Delete Answer</button>
+                      <button className="form-button" onClick={() => onDelete({ answer })}>Delete Answer</button>
                     </div>
                   </div>
                 )
@@ -65,7 +65,7 @@ const AnswersList = () => {
         sessionUser?.id && (
           <div>
             <div>
-              <button onClick={() => setShowForm(true)}>Create new Answer</button>
+              <button className="form-button" onClick={() => setShowForm(true)}>Create new Answer</button>
             </div>
             {
               showForm &&

@@ -2,7 +2,7 @@ import './About.css'
 
 const About = () => {
   return (
-    <div className="about-body">
+    <div className="body-container">
       <div className="about-section">
         <div className="about-text-1">
           <h1>Why Hoopa exists</h1>

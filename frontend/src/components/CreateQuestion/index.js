@@ -50,43 +50,47 @@ const CreateQuestion = ({ hideForm }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul className="errors">
-        {onSubmit &&
-          validationErrors.map(error => (
-            <li key={error}>{error}</li>
-          ))
-        }
-      </ul>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <textarea
-          id="title"
-          name="title"
-          onChange={e => setTitle(e.target.value)}
-          value={title}
-          required
-        ></textarea>
-      </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          onChange={e => setDescription(e.target.value)}
-          value={description}
-          required
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-      >
-        Submit new question
-      </button>
-      <button onClick={() => hideForm()}>
-        Cancel
-      </button>
-    </form>
+    <div className="form-div">
+      <form onSubmit={handleSubmit}>
+        <ul className="errors">
+          {onSubmit &&
+            validationErrors.map(error => (
+              <li key={error}>{error}</li>
+            ))
+          }
+        </ul>
+        <div>
+          <label htmlFor="title">Title:</label>
+          <textarea
+            id="title"
+            name="title"
+            onChange={e => setTitle(e.target.value)}
+            value={title}
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            onChange={e => setDescription(e.target.value)}
+            value={description}
+            required
+          ></textarea>
+        </div>
+        <button
+          className="form-button"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button className="form-button" onClick={() => hideForm()}>
+          Cancel
+        </button>
+      </form>
+    </div>
+
   );
 
 }

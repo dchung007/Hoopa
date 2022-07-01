@@ -19,7 +19,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="body-container">
       <h1>Questions List</h1>
       <div>
         {Object.values(questions).map((question) => {

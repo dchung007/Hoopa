@@ -9,4 +9,30 @@ a:active {
   text-decoration: none;
 }
 
+div.body-container {
+  margin: 30px;
+}
 
+button.login-button {
+  background: orange;
+  color: white;
+  border-style: outset;
+  border-color: orangered;
+  height: 30px;
+  width: 100px;
+  font: bold15px arial, sans-serif;
+  text-shadow: none;
+  border-radius: 15px;
+}
+
+button.form-button {
+  background: orange;
+  color: white;
+  border-style: outset;
+  border-color: orangered;
+  height: 30px;
+  width: 100px;
+  font: bold15px arial, sans-serif;
+  text-shadow: none;
+  border-radius: 15px;
+}

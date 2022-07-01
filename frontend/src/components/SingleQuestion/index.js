@@ -33,19 +33,19 @@ const SingleQuestion = () => {
 
   return (
     question ?
-      <div>
+      <div className="body-container">
         <h1>{question.title}</h1>
         <h2>{question.description}</h2>
         {
           +sessionUser?.id === question.ownerId &&
           (
             <div>
-              <button onClick={() => setShowForm(true)}>Edit Question</button>
+              <button className="form-button" onClick={() => setShowForm(true)}>Edit Question</button>
               {
                 showForm &&
                 <EditQuestion question={question} hideForm={{ showForm, setShowForm }} />
               }
-              <button onClick={() => onDelete()}>Delete Question</button>
+              <button className="form-button" onClick={() => onDelete()}>Delete Question</button>
             </div>
           )
         }

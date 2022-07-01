@@ -19,7 +19,7 @@ const QuestionsList = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="body-container">
       <h1>Questions List</h1>
       <div>
         {Object.values(questions).map((question) => {
@@ -49,7 +49,7 @@ const QuestionsList = () => {
         sessionUser?.id && (
           <div>
             <div>
-              <button onClick={() => setShowForm(true)}>Create new Question</button>
+              <button className="form-button" onClick={() => setShowForm(true)}>Create new Question</button>
             </div>
             {
               showForm &&
