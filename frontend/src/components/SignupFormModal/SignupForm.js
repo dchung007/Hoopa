@@ -31,6 +31,7 @@ function SignupFormPage() {
 
   return (
     <div>
+      <div></div>
       <form className="login-form" onSubmit={handleSubmit}>
         <ul className='login-form-list'>
           <ul>
