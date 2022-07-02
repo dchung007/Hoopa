@@ -1,0 +1,36 @@
+div.question-info {
+  margin-bottom: 10px;
+  border: solid 3px orange;
+  /* padding: 10px; */
+  border-radius: 10px;
+  margin-right: 20px;
+  height: 250px;
+  width: 300px;
+}
+
+div.questions-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+div#link-all-questions {
+  margin-bottom: 10px;
+  border: solid 3px orange;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  margin-right: 20px;
+  background-color: orange;
+}
+
+div.question-title {
+  background-color: orange;
+  padding: 10px;
+  height: 70px;
+}
+
+div.question-description {
+  height: 50px;
+  padding: 10px;
+}
