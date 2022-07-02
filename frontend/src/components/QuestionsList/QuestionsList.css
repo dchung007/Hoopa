@@ -1,3 +1,30 @@
-button.form-button {
-  width: 150px;
+div.question-info {
+  margin-bottom: 10px;
+  border: solid 3px orange;
+  /* padding: 10px; */
+  border-radius: 10px;
+  margin-right: 20px;
+  height: 200px;
+  width: 300px;
+}
+
+div.questions-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+div.question-username {
+  padding: 5px;
+  background-color: orange;
+}
+
+div.question-title {
+  background-color: orange;
+  padding: 10px;
+  height: 70px;
+}
+
+div.question-description {
+  height: 50px;
 }

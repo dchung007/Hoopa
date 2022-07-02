@@ -22,23 +22,20 @@ const QuestionsList = () => {
   return (
     <div className="body-container">
       <h1>Questions List</h1>
-      <div>
+      <div className="questions-list">
         {Object.values(questions).map((question) => {
           return (
-            <div key={question.id}>
+            <div key={question.id} className="question-info">
               <NavLink to={`/questions/${question.id}`}>
                 <div>
-                  <div>
+                  <div className="question-username">
                     {question.User?.username}
                   </div>
-                  <div>
+                  <div className="question-title">
                     {question.title}
                   </div>
-                  <div>
+                  <div className="question-description">
                     {question.description}
-                  </div>
-                  <div>
-                    ___________________________________________
                   </div>
                 </div>
               </NavLink>

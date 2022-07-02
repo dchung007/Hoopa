@@ -27,10 +27,10 @@ const HomePage = () => {
             <div key={question.id} className="question-info">
               <NavLink to={`/questions/${question.id}`}>
                 <div>
-                  <div>
+                  <div className="question-title">
                     {question.title}
                   </div>
-                  <div>
+                  <div className="question-description">
                     {question.description}
                   </div>
                 </div>
@@ -44,13 +44,6 @@ const HomePage = () => {
       </div>
     </div>
   );
-  // return (
-  //   <>
-  //     <h1>whats up</h1>
-  //     <NavLink to="/questions">All Questions</NavLink>
-  //   </>
-
-  // )
 }
 
 export default HomePage;
