@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom';
 import { thunkCreateQuestion } from '../../store/questions';
 import './CreateQuestion.css';
 
-const CreateQuestion = ({ hideForm }) => {
-  const { showForm, setShowForm } = hideForm;
+const CreateQuestion = ({ setShowModal }) => {
+  // const { showForm, setShowForm } = hideForm;
+  // const [showModal, setShowModal] = useState(true);
   const dispatch = useDispatch();
   const history = useHistory();
   const [title, setTitle] = useState('');
@@ -51,45 +52,50 @@ const CreateQuestion = ({ hideForm }) => {
 
   return (
     <div className="form-div">
-      <form onSubmit={handleSubmit}>
-        <ul className="errors">
-          {onSubmit &&
-            validationErrors.map(error => (
-              <li key={error}>{error}</li>
-            ))
-          }
+      <form className="login-form" onSubmit={handleSubmit}>
+        <ul className="login-form-list">
+          <ul className="errors">
+            {onSubmit &&
+              validationErrors.map(error => (
+                <li key={error}>{error}</li>
+              ))
+            }
+          </ul>
+          <li>
+            <div>
+              <label htmlFor="title">Title:</label>
+              <textarea
+                id="title"
+                name="title"
+                onChange={e => setTitle(e.target.value)}
+                value={title}
+                required
+              ></textarea>
+            </div>
+          </li>
+          <li>
+            <div>
+              <label htmlFor="description">Description:</label>
+              <textarea
+                id="description"
+                name="description"
+                onChange={e => setDescription(e.target.value)}
+                value={description}
+                required
+              ></textarea>
+            </div>
+          </li>
+          <li className="submit-button">
+            <button
+              className="form-button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </li>
         </ul>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <textarea
-            id="title"
-            name="title"
-            onChange={e => setTitle(e.target.value)}
-            value={title}
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            onChange={e => setDescription(e.target.value)}
-            value={description}
-            required
-          ></textarea>
-        </div>
-        <button
-          className="form-button"
-          type="submit"
-        >
-          Submit
-        </button>
-        <button className="form-button" onClick={() => hideForm()}>
-          Cancel
-        </button>
       </form>
-    </div>
+    </div >
 
   );
 
