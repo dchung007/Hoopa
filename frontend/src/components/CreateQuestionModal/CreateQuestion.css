@@ -25,8 +25,8 @@ form.login-form {
   font-weight: bold;
 }
 
-.login-form-list input[type=title],
-.login-form-list input[type=description] {
+.login-form-list textarea[type=text],
+.login-form-list textarea[type=text] {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -43,8 +43,8 @@ form.login-form {
 }
 
 
-.login-form-list input[type=title]:focus,
-.login-form-list input[type=description]:focus {
+.login-form-list textarea[type=text]:focus,
+.login-form-list textarea[type=text]:focus {
   -moz-box-shadow: 0 0 8px orange;
   -webkit-box-shadow: 0 0 8px orange;
   box-shadow: 0 0 8px orange;

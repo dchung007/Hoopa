@@ -53,6 +53,11 @@ const CreateQuestion = ({ setShowModal }) => {
   return (
     <div className="form-div">
       <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form-title">
+          <h2>
+            Further your knowledge of the game
+          </h2>
+        </div>
         <ul className="login-form-list">
           <ul className="errors">
             {onSubmit &&
@@ -67,6 +72,7 @@ const CreateQuestion = ({ setShowModal }) => {
               <textarea
                 id="title"
                 name="title"
+                type="text"
                 onChange={e => setTitle(e.target.value)}
                 value={title}
                 required
@@ -79,6 +85,7 @@ const CreateQuestion = ({ setShowModal }) => {
               <textarea
                 id="description"
                 name="description"
+                type="text"
                 onChange={e => setDescription(e.target.value)}
                 value={description}
                 required
