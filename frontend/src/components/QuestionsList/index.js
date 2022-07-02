@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetQuestions } from "../../store/questions";
 import { NavLink, Switch, Route } from "react-router-dom";
-import CreateQuestion from "../CreateQuestion";
+// import CreateQuestion from "../CreateQuestion";
+import CreateQuestionModal from "../CreateQuestionModal";
 import './QuestionsList.css';
 
 const QuestionsList = () => {
@@ -48,15 +49,7 @@ const QuestionsList = () => {
       {
         sessionUser?.id && (
           <div>
-            <div>
-              <button className="form-button" onClick={() => setShowForm(true)}>Create new Question</button>
-            </div>
-            {
-              showForm &&
-              <div>
-                <CreateQuestion hideForm={() => setShowForm(false)} />
-              </div>
-            }
+            <CreateQuestionModal />
           </div>
         )
       }

@@ -1,0 +1,123 @@
+form.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form-list {
+  margin: 10px auto;
+  max-width: 400px;
+  padding: 20px 12px 10px 20px;
+  font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.login-form-list li {
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+
+.login-form-list label {
+  margin: 0 0 3px 0;
+  padding: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+.login-form-list textarea[type=text],
+.login-form-list textarea[type=text] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #BEBEBE;
+  padding: 7px;
+  margin: 0px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border-radius: 10px;
+  ;
+}
+
+
+.login-form-list textarea[type=text]:focus,
+.login-form-list textarea[type=text]:focus {
+  -moz-box-shadow: 0 0 8px orange;
+  -webkit-box-shadow: 0 0 8px orange;
+  box-shadow: 0 0 8px orange;
+  border: 1px solid orange;
+}
+
+/* .login-form-list .field-divided {
+  width: 49%;
+} */
+
+.login-form-list .field-login {
+  width: 100%;
+}
+
+
+.login-form-list .field-textarea {
+  height: 100px;
+}
+
+.login-form-list input[type=submit],
+.login-form-list input[type=button] {
+  background: orange;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+}
+
+.login-form-list input[type=submit]:hover,
+.login-form-list input[type=button]:hover {
+  background: orange;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.login-form-list .required {
+  color: red;
+}
+
+button.login-button {
+  background: orange;
+  color: white;
+  border-style: outset;
+  border-color: orangered;
+  height: 35px;
+  width: 100px;
+  font: bold15px arial, sans-serif;
+  text-shadow: none;
+  border-radius: 15px;
+}
+
+
+/* div.form-div {
+  background-color:orange;
+  border: solid orangered 5px;
+  border-radius: 15px;
+} */
+
+div.form-title {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  text-align: center;
+  width: 200px;
+}
+
+div.modal-button {
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+  margin-bottom: 30px;
+}
+
+li.submit-button {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
