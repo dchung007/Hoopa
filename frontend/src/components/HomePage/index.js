@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetSomeQuestions } from "../../store/questions";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import './HomePage.css';
 
@@ -21,10 +21,10 @@ const HomePage = () => {
   return (
     <div className="body-container">
       <h1>Questions List</h1>
-      <div>
+      <div className="questions-list">
         {Object.values(questions).map((question) => {
           return (
-            <div key={question.id}>
+            <div key={question.id} className="question-info">
               <NavLink to={`/questions/${question.id}`}>
                 <div>
                   <div>
@@ -33,16 +33,13 @@ const HomePage = () => {
                   <div>
                     {question.description}
                   </div>
-                  <div>
-                    ___________________________________________
-                  </div>
                 </div>
               </NavLink>
             </div>
           )
         })}
       </div>
-      <div>
+      <div id="link-all-questions">
         <NavLink to="/questions">All Questions</NavLink>
       </div>
     </div>

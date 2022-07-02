@@ -1,0 +1,23 @@
+div.question-info {
+  margin-bottom: 10px;
+  border: solid 3px orange;
+  padding: 10px;
+  border-radius: 10px;
+  width: auto;
+  margin-right: 20px;
+}
+
+div.questions-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+div#link-all-questions {
+  margin-bottom: 10px;
+  border: solid 3px orange;
+  padding: 10px;
+  border-radius: 10px;
+  width: auto;
+  margin-right: 20px;
+}
