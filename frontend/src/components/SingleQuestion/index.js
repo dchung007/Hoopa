@@ -4,10 +4,12 @@ import { useHistory, useParams } from "react-router-dom";
 import { thunkGetAnswers } from "../../store/answers";
 import { thunkDeleteQuestion, thunkGetQuestions } from "../../store/questions";
 import AnswersList from "../AnswersList";
-import EditQuestion from "../EditQuestion";
+// import EditQuestion from "../EditQuestion";
+import EditQuestionModal from "../EditQuestionModal";
+import './SingleQuestion.css'
 
 const SingleQuestion = () => {
-  const [showForm, setShowForm] = useState();
+  // const [showForm, setShowForm] = useState();
   const dispatch = useDispatch();
   const { id: questionId } = useParams();
   // console.log(id);
@@ -40,11 +42,7 @@ const SingleQuestion = () => {
           +sessionUser?.id === question.ownerId &&
           (
             <div>
-              <button className="form-button" onClick={() => setShowForm(true)}>Edit Question</button>
-              {
-                showForm &&
-                <EditQuestion question={question} hideForm={{ showForm, setShowForm }} />
-              }
+              <EditQuestionModal question={question} />
               <button className="form-button" onClick={() => onDelete()}>Delete Question</button>
             </div>
           )
