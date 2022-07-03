@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
 
-import { thunkCreateAnswer } from '../../store/answers';
+import { thunkCreateAnswer, thunkGetAnswers } from '../../store/answers';
 import './CreateAnswer.css';
 
-const CreateAnswer = ({ hideModal }) => {
+const CreateAnswer = ({ hideModal}) => {
   // const { showForm, setShowForm } = hideForm;
   const { id } = useParams();
   // const [showForm, setShowForm] = useState(false);
@@ -44,6 +44,7 @@ const CreateAnswer = ({ hideModal }) => {
         // console.log('HELPPPPPP----------------')
         // history.push(`/questions/${createdAnswer.questionId}`)
         // hideForm()
+        dispatch(thunkGetAnswers(id));
         hideModal();
       }
     }

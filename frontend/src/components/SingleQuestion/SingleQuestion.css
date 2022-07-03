@@ -2,3 +2,13 @@ button.form-button {
   width: 150px;
 }
 
+div.question-info {
+  background-color: orange;
+  width: 500px !important;
+}
+
+div.body-container {
+
+  justify-content: center !important;
+
+}

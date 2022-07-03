@@ -34,6 +34,7 @@ export const thunkGetAnswers = (questionId) => async (dispatch) => {
     const answers = await response.json();
     // console.log(answers);
     dispatch(actionLoadAnswers(answers));
+    // return answers;
   }
 }
 

@@ -36,8 +36,11 @@ const SingleQuestion = () => {
   return (
     question ?
       <div className="body-container">
-        <h1>{question.title}</h1>
-        <h2>{question.description}</h2>
+        <div className="question-info">
+          <h1>{question.title}</h1>
+          <h2>{question.description}</h2>
+          <h3>{question.User?.username}</h3>
+        </div>
         {
           +sessionUser?.id === question.ownerId &&
           (
