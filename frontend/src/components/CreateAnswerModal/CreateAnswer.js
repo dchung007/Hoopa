@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { thunkCreateAnswer, thunkGetAnswers } from '../../store/answers';
 import './CreateAnswer.css';
 
-const CreateAnswer = ({ hideModal}) => {
+const CreateAnswer = ({ hideModal }) => {
   // const { showForm, setShowForm } = hideForm;
   const { id } = useParams();
   // const [showForm, setShowForm] = useState(false);
@@ -67,7 +67,9 @@ const CreateAnswer = ({ hideModal}) => {
           </ul>
           <li>
             <div>
-              <label htmlFor="answer">Answer:</label>
+              <label htmlFor="answer">
+                Answer:<span className="required">*</span>
+              </label>
               <textarea
                 id="answer"
                 name="answer"

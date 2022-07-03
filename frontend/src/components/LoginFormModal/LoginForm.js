@@ -43,7 +43,7 @@ function LoginFormPage() {
           </ul>
           <li>
             <label>
-              Username or Email<span class="required">*</span>
+              Username or Email<span className="required">*</span>
               <input
                 className="field-login"
                 type="text"
@@ -55,7 +55,7 @@ function LoginFormPage() {
           </li>
           <li>
             <label>
-              Password<span class="required">*</span>
+              Password<span className="required">*</span>
               <input
                 className="field-login"
                 type="password"

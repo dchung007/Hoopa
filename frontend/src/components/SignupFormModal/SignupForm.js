@@ -46,7 +46,7 @@ function SignupFormPage() {
           </ul>
           <li>
             <label>
-              Email
+              Email<span className="required">*</span>
               <input
                 className="field-login"
                 type="text"
@@ -58,7 +58,7 @@ function SignupFormPage() {
           </li>
           <li>
             <label>
-              Username
+              Username<span className="required">*</span>
               <input
                 className="field-login"
                 type="text"
@@ -70,7 +70,7 @@ function SignupFormPage() {
           </li>
           <li>
             <label>
-              Password
+              Password<span className="required">*</span>
               <input
                 className="field-login"
                 type="password"
@@ -82,7 +82,7 @@ function SignupFormPage() {
           </li>
           <li>
             <label>
-              Confirm Password
+              Confirm Password<span className="required">*</span>
               <input
                 className="field-login"
                 type="password"

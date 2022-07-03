@@ -69,7 +69,9 @@ const EditQuestion = ({ question, hideModal }) => {
           </ul>
           <li>
             <div>
-              <label htmlFor="title">Title:</label>
+              <label htmlFor="title">
+                Title:<span className="required">*</span>
+              </label>
               <textarea
                 id="title"
                 name="title"
@@ -82,7 +84,9 @@ const EditQuestion = ({ question, hideModal }) => {
           </li>
           <li>
             <div>
-              <label htmlFor="description">Description:</label>
+              <label htmlFor="description">
+                Description:<span className="required">*</span>
+              </label>
               <textarea
                 id="description"
                 name="description"
