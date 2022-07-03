@@ -52,8 +52,6 @@ function Navigation({ isLoaded }) {
       </div>
       <div>
         <ul className='nav-links'>
-          <input type="checkbox" id="checkbox-toggle" />
-          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
           <div className='menu'>
             <div>
               <NavLink exact to="/">Home</NavLink>

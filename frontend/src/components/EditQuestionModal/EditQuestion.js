@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import { useParams } from "react-router-dom";
-import { thunkUpdateQuestion } from "../../store/questions";
+import { thunkGetQuestions, thunkUpdateQuestion } from "../../store/questions";
 
 import "./EditQuestion.css";
 
@@ -45,6 +45,7 @@ const EditQuestion = ({ question, hideModal }) => {
       // setShowForm(false);
       if (updatedQuestion) {
         // history.push(`/questions/${updatedQuestion.id}`)
+        dispatch(thunkGetQuestions());
         hideModal();
       }
     }
