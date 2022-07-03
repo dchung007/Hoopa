@@ -40,7 +40,7 @@ const AnswersList = () => {
         <div>
           {Object.values(answers).map((answer) => {
             return (
-              <div key={answer.id}>
+              <div key={answer.id} className="single-answer">
                 <div>
                   {answer.User?.username}
                 </div>
@@ -51,7 +51,7 @@ const AnswersList = () => {
                   +sessionUser?.id === answer.userId &&
                   (
                     <div>
-                      <div>
+                      <div className="delete-answer-button">
                         <button className="form-button" onClick={() => onDelete({ answer })}>Delete Answer</button>
                       </div>
                     </div>

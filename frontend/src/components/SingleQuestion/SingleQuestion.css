@@ -2,13 +2,14 @@ button.form-button {
   width: 150px;
 }
 
-div.question-info {
-  background-color: orange;
+div.single-question-info {
   width: 500px !important;
+  border-radius: 15px;
+  padding: 20px;
+  border: orange 5px solid;
 }
 
-div.body-container {
-
-  justify-content: center !important;
-
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -36,20 +36,26 @@ const SingleQuestion = () => {
   return (
     question ?
       <div className="body-container">
-        <div className="question-info">
-          <h1>{question.title}</h1>
-          <h2>{question.description}</h2>
-          <h3>{question.User?.username}</h3>
+        <div className="single-question-info">
+          <div>
+            <h1>{question.title}</h1>
+          </div>
+          <div>
+            <h2>{question.description}</h2>
+          </div>
+          <div>
+            <h3>{question.User?.username}</h3>
+          </div>
+          {
+            +sessionUser?.id === question.ownerId &&
+            (
+              <div>
+                <EditQuestionModal question={question} />
+                <button className="form-button" onClick={() => onDelete()}>Delete Question</button>
+              </div>
+            )
+          }
         </div>
-        {
-          +sessionUser?.id === question.ownerId &&
-          (
-            <div>
-              <EditQuestionModal question={question} />
-              <button className="form-button" onClick={() => onDelete()}>Delete Question</button>
-            </div>
-          )
-        }
         <div>
           <AnswersList />
         </div>
