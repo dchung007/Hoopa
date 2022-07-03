@@ -8,10 +8,10 @@ const answersRouter = express.Router();
 // Answers feature routes
 answersRouter.get('/:questionId(\\d+)', asyncHandler(async (req, res) => {
   const answers = await Answer.findAll({
+    include: [User],
     where: {
       questionId: req.params.questionId
-    },
-    include: [User]
+    }
   });
   // console.log(answers);
   return res.json(answers);

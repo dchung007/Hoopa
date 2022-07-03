@@ -2,3 +2,14 @@ button.form-button {
   width: 150px;
 }
 
+div.single-question-info {
+  width: 500px !important;
+  border-radius: 15px;
+  padding: 20px;
+  border: orange 5px solid;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

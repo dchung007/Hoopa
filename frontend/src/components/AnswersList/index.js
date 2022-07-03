@@ -34,43 +34,43 @@ const AnswersList = () => {
 
   }
   return (
-    <div className="body-container">
-      <h2>Answers</h2>
-      <div>
-        {Object.values(answers).map((answer) => {
-          return (
-            <div key={answer.id}>
-              <div>
-                {answer.User?.username}
-              </div>
-              <div>
-                {answer.answer}
-              </div>
-              {
-                +sessionUser?.id === answer.userId &&
-                (
-                  <div>
+    answers ?
+      <div className="body-container">
+        <h2>Answers</h2>
+        <div>
+          {Object.values(answers).map((answer) => {
+            return (
+              <div key={answer.id} className="single-answer">
+                <div>
+                  {answer.User?.username}
+                </div>
+                <div>
+                  {answer.answer}
+                </div>
+                {
+                  +sessionUser?.id === answer.userId &&
+                  (
                     <div>
-                      <button className="form-button" onClick={() => onDelete({ answer })}>Delete Answer</button>
+                      <div className="delete-answer-button">
+                        <button className="form-button" onClick={() => onDelete({ answer })}>Delete Answer</button>
+                      </div>
                     </div>
-                  </div>
-                )
-              }
-              <div>
-                __________________________________________________________________________
+                  )
+                }
               </div>
+            )
+          })}
+        </div>
+        {
+          sessionUser?.id && (
+            <div>
+              <CreateAnswerModal />
             </div>
           )
-        })}
-      </div>
-      {
-        sessionUser?.id && (
-          <div>
-            <CreateAnswerModal />
-          </div>
-        )
-      }
-    </div >
+        }
+      </div >
+      :
+      <div>Loading...</div>
   );
 }
 

@@ -97,6 +97,9 @@ button.login-button {
   border-radius: 15px;
 }
 
+button.modal-button-edit {
+  margin-right: 10px;
+}
 
 /* div.form-div {
   background-color:orange;
