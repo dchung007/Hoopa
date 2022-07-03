@@ -37,7 +37,7 @@ function SignupFormPage() {
             Hoopa
           </h1>
           <h4>
-            A place to share knowledge and better understand the game.
+            Get your head in the game.
           </h4>
         </div>
         <ul className='login-form-list'>
