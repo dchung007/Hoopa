@@ -25,7 +25,6 @@ form.login-form {
   font-weight: bold;
 }
 
-.login-form-list textarea[type=text],
 .login-form-list textarea[type=text] {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -39,6 +38,8 @@ form.login-form {
   -o-transition: all 0.30s ease-in-out;
   outline: none;
   border-radius: 10px;
+  width: 350px;
+  height: 150px;
   ;
 }
 
@@ -107,6 +108,7 @@ div.form-title {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-align: center;
   width: 200px;
+  margin-top: 25px;
 }
 
 div.modal-button {
@@ -120,4 +122,8 @@ li.submit-button {
   display: flex;
   justify-content: center;
   margin-right: 10px;
+}
+
+div.form-div {
+  width: 450px
 }
