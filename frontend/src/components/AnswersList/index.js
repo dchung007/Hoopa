@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkDeleteAnswer, thunkGetAnswers } from "../../store/answers";
 
-import CreateAnswer from "../CreateAnswer/index.js";
+// import CreateAnswer from "../CreateAnswer/index.js";
+import CreateAnswerModal from "../CreateAnswerModal";
+import './AnswersList.css'
 // const db = require("../../../../backend/db");
 // const { Question, Answer } = db;
 
@@ -64,15 +66,7 @@ const AnswersList = () => {
       {
         sessionUser?.id && (
           <div>
-            <div>
-              <button className="form-button" onClick={() => setShowForm(true)}>Create new Answer</button>
-            </div>
-            {
-              showForm &&
-              <div>
-                <CreateAnswer hideForm={() => setShowForm(false)} />
-              </div>
-            }
+            <CreateAnswerModal />
           </div>
         )
       }

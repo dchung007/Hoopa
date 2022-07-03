@@ -107,8 +107,9 @@ button.login-button {
 div.form-title {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-align: center;
-  width: 200px;
+  width: 350px;
   margin-top: 25px;
+  margin-left: 45px;
 }
 
 div.modal-button {
@@ -125,5 +126,5 @@ li.submit-button {
 }
 
 div.form-div {
-  width: 450px
+  width: 450px;
 }
