@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { thunkCreateQuestion } from '../../store/questions';
 import './CreateQuestion.css';
 
-const CreateQuestion = ({ setShowModal }) => {
+const CreateQuestion = () => {
   // const { showForm, setShowForm } = hideForm;
   // const [showModal, setShowModal] = useState(true);
   const dispatch = useDispatch();
