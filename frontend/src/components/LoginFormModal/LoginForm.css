@@ -41,7 +41,8 @@ form.login-form {
   border-radius: 10px;
   ;
 }
-/* 
+
+/*
 .login-form-list input[type=text]:focus,
 .login-form-list input[type=password]:focus {
   -moz-box-shadow: 0 0 8px orange;
@@ -97,6 +98,7 @@ button.login-button {
   font: bold15px arial, sans-serif;
   text-shadow: none;
   border-radius: 15px;
+  margin-left: 65px;
 }
 
 
@@ -120,4 +122,5 @@ div.form-title {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-align: center;
   width: 200px;
+  margin-right: 35px;
 }
