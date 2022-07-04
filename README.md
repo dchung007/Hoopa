@@ -38,6 +38,11 @@ All logged-in users can create their own questions. They can also edit and delet
 ### Creating, viewing and deleting Answers
 All logged-in users can post their own answers on any question. They can also delete only their own answers.
 
+## Future features to implement
+- Comment on a specific answer
+- Update answers
+- Add images to questions
+
 ## Challenges Faced
 There were many obstacles I faced, at every stage of the process. I had issues with establishing valid model and migration associations, and had to revise them numerous times whenever I decided to make changes to the data I wanted our website to have. The association were difficult at times because simple foreign key mistakes or an extra character here or there could throw everything off. I had to drop the database, rerun all migrations and seeder files, to solve this issue, as well as update the associations to have the correct foreign keys.
 I also ran into many 404 errors when setting up my two full CRUD features. There were multiple times when my state would not hydrate when I either submitted a form or wanted to load questions/answers. It would only hydrate once I refreshed the page. My initial solution was to simply rehydrate the state manually by disptaching another action. However, upon further review and debugging, I solved this by following the flow of data in Redux. I realized that the reason why my redux state was not updating dynamically was because I was actually passing in the wrong information to the particular thunk (update/create operation) in my react component. As a result, the state was not updating as it should have been. I had to pass in the whole instance of either particular answer/question that I wanted to delete/update.
