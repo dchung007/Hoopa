@@ -12,11 +12,11 @@ git clone "git@github.com:dchung007/Hoopa.git"
 4. Use the command "npm start" in both terminals to start up the server and access the localhost website version (separate from thr heroku hosted site).
 
 ## Technologies Used
-Languages: Javascript, HTML, CSS
-Front-End: React, JSX
-Back-End: Express, Javascript
-Database: PostgreSQL
-Hosting: Heroku
+- Languages: Javascript, HTML, CSS
+- Front-End: React, JSX
+- Back-End: Express, Javascript
+- Database: PostgreSQL
+- Hosting: Heroku
 
 ## Link to live site
 https://hoopa.herokuapp.com/
