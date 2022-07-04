@@ -29,14 +29,27 @@ https://github.com/dchung007/Hoopa/wiki
 ### Register/Sign-in
 Users can register an account on Hoopa with a unique username and a password of their choosing. They can also sign in with their created username and password. If sign-in credentials are incorrect, error messages will alert the user to try again.
 
+![Screen Shot 2022-07-03 at 8 38 10 PM](https://user-images.githubusercontent.com/84115420/177077550-0516e2f2-98c4-401e-b6c5-b544135fd717.png)
+
+![Screen Shot 2022-07-03 at 8 38 35 PM](https://user-images.githubusercontent.com/84115420/177077650-238fc4f9-d81a-4767-b6f6-249d1962f70f.png)
+
+
 ### View Questions
 All users, even those without an account can view any and all questions.
+![Screen Shot 2022-07-03 at 8 37 19 PM](https://user-images.githubusercontent.com/84115420/177077478-53812bf6-17c4-4efa-90c9-b1802bd83663.png)
 
-### Creating, viewing, editing, and deleting Questions
+### Creating, editing, and deleting Questions
 All logged-in users can create their own questions. They can also edit and delete their questions, but only the ones they themselves posted.
+![Screen Shot 2022-07-03 at 8 47 56 PM](https://user-images.githubusercontent.com/84115420/177078198-32ea9fc8-29f8-420a-b731-273790bd4790.png)
+![Screen Shot 2022-07-03 at 8 49 44 PM](https://user-images.githubusercontent.com/84115420/177078383-66ebe27f-4151-4f6b-9698-332534f9899a.png)
+
+
+
 
 ### Creating, viewing and deleting Answers
 All logged-in users can post their own answers on any question. They can also delete only their own answers.
+![Screen Shot 2022-07-03 at 8 38 53 PM](https://user-images.githubusercontent.com/84115420/177077711-8468112c-7c3f-43af-b8a7-cdd32738b8a4.png)
+![Screen Shot 2022-07-03 at 8 39 05 PM](https://user-images.githubusercontent.com/84115420/177077805-9aec68b3-d2cb-419d-bab4-633a0362aba8.png)
 
 ## Future features to implement
 - Comment on a specific answer
