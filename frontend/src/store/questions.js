@@ -74,7 +74,7 @@ export const thunkUpdateQuestion = (question) => async (dispatch) => {
   })
 
   if (response.ok) {
-    console.log("update please???????")
+    // console.log("update please???????")
     const fixedQuestion = await response.json();
     dispatch(actionAddQuestion(fixedQuestion));
     return fixedQuestion;
