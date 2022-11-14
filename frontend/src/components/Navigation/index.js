@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from '../../store/session';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
+import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -49,6 +50,9 @@ function Navigation({ isLoaded }) {
         <NavLink to="/">
           <img id="logo-pic" src="../../images/favicon.ico" />oopa
         </NavLink>
+      </div>
+      <div>
+        <SearchBar/>
       </div>
       <div>
         <ul className='nav-links'>
