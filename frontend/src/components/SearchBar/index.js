@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './SearchBar.css'
 
+
 const SearchBar = () => {
   const [spots, setSpots] = useState('');
   const [spotsResults, setSpotsResults] = useState('');
