@@ -2,29 +2,28 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './SearchBar.css'
 
-
 const SearchBar = () => {
-  const [spots, setSpots] = useState('');
-  const [spotsResults, setSpotsResults] = useState('');
+  const [questions, setQuestions] = useState('');
+  const [questionsResults, setQuestionsResults] = useState('');
   const [dropdown, setDropdown] = useState('');
   const [searchInput, setSearchInput] = useState('');
 
-  const fetchSpots = () => {
+  const fetchQuestions = () => {
     fetch('/api/questions/')
       .then(response => response.json())
-      .then(data => setSpots(data))
+      .then(data => setQuestions(data))
   }
 
   useEffect(() => {
-    fetchSpots()
+    fetchQuestions()
   }, [])
 
   const handleChange = (searchWord) => {
     if (searchWord) {
-      const searchSpotsResults = spots.spots.filter(spot => {
-        return spot.city.toLowerCase().startsWith(searchWord.toLowerCase()) || spot.state.toLowerCase().startsWith(searchWord.toLowerCase()) || spot.country.toLowerCase().startsWith(searchWord.toLowerCase())
+      const searchQuestionsResults = questions.filter(question => {
+        return question.toLowerCase().startsWith(searchWord.toLowerCase())
       })
-      setSpotsResults(searchSpotsResults)
+      setQuestionsResults(searchQuestionsResults)
       setDropdown(true);
       setSearchInput(searchWord)
     } else {
@@ -45,17 +44,17 @@ const SearchBar = () => {
       }
       <div className="search-field">
         <input
-          placeholder="Search destinations"
+          placeholder="Search questions"
           onChange={(e) => handleChange(e.target.value)}
           value={searchInput}
         ></input>
       </div>
       <div className={dropdown ? "search-results" : "search-none"}>
-        {dropdown && spotsResults.length ? (
-          spotsResults.map(spot => (
-            <div key={spot.id} className="search-user">
-              <Link onClick={()=> clickResult()} to={`/spots/${spot.id}`}>
-              {spot.name}
+        {dropdown && questionsResults.length ? (
+          questionsResults.map(question => (
+            <div key={question.id} className="search-user">
+              <Link onClick={()=> clickResult()} to={`/spots/${question.id}`}>
+              {question.question}
               </Link>
             </div>
           ))
