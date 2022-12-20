@@ -21,9 +21,11 @@ const SearchBar = () => {
   const handleChange = (searchWord) => {
     if (searchWord) {
       const searchQuestionsResults = questions.filter(question => {
-        return question.toLowerCase().startsWith(searchWord.toLowerCase())
+        // console.log(question.title.toLowerCase().startsWith(searchWord.toLowerCase()))
+        return question.title.toLowerCase().startsWith(searchWord.toLowerCase())
       })
       setQuestionsResults(searchQuestionsResults)
+      console.log(questionsResults)
       setDropdown(true);
       setSearchInput(searchWord)
     } else {
@@ -53,8 +55,10 @@ const SearchBar = () => {
         {dropdown && questionsResults.length ? (
           questionsResults.map(question => (
             <div key={question.id} className="search-user">
-              <Link onClick={()=> clickResult()} to={`/spots/${question.id}`}>
-              {question.question}
+              <Link onClick={()=> clickResult()} to={`/questions/${question.id}`}>
+                <div className="search-user-name">
+                {question.title}
+                </div>
               </Link>
             </div>
           ))
