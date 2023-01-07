@@ -7,7 +7,7 @@ const SearchBar = () => {
   const [questionsResults, setQuestionsResults] = useState('');
   const [dropdown, setDropdown] = useState('');
   const [searchInput, setSearchInput] = useState('');
-
+ 
   const fetchQuestions = () => {
     fetch('/api/questions/')
       .then(response => response.json())
