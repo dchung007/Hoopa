@@ -12,6 +12,7 @@ const CreateQuestion = () => {
   const history = useHistory();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState(null);
   const [validationErrors, setValidationErrors] = useState([]);
   const [onSubmit, setOnSubmit] = useState(false)
 
@@ -37,7 +38,8 @@ const CreateQuestion = () => {
       const payload = {
         ownerId: sessionUser.id,
         title,
-        description
+        description,
+        image
       };
       // console.log('helloooo');
       let createdQuestion = await dispatch(thunkCreateQuestion(payload));
@@ -49,6 +51,11 @@ const CreateQuestion = () => {
     }
 
   }
+
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
 
   return (
     <div className="form-div">
@@ -94,6 +101,12 @@ const CreateQuestion = () => {
                 value={description}
                 required
               ></textarea>
+            </div>
+          </li>
+          <li>
+            <div>
+              <label htmlFor="image" className='imageLabel'>Add Image(Optional) </label>
+              <input id='image' type="file" onChange={updateFile} />
             </div>
           </li>
           <li className="submit-button">

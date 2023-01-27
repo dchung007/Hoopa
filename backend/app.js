@@ -18,6 +18,8 @@ app.use(morgan('dev'));
 
 // express.json parses JSON bodies of requests with 'Content-Type' of 'application/json'
 app.use(cookieParser());
+// aws
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Security Middleware
