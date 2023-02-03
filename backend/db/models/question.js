@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(250),
+      allowNull: true
     }
   }, {});
   Question.associate = function (models) {
