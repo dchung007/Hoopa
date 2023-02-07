@@ -106,7 +106,11 @@ const CreateQuestion = () => {
           <li>
             <div>
               <label htmlFor="image" className='imageLabel'>Add Image(Optional) </label>
-              <input id='image' type="file" onChange={updateFile} />
+              <input
+              id='image'
+              type="file"
+              onChange={updateFile}
+              />
             </div>
           </li>
           <li className="submit-button">
