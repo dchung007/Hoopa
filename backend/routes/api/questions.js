@@ -1,7 +1,9 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 const { Question, Answer, User } = db;
+
 
 const questionsRouter = express.Router();
 
@@ -13,12 +15,14 @@ questionsRouter.get('/', asyncHandler(async (req, res) => {
   return res.json(questions);
 }));
 
-questionsRouter.post('/', asyncHandler(async (req, res) => {
+questionsRouter.post('/', singleMulterUpload("image"), asyncHandler(async (req, res) => {
   const { ownerId, title, description } = req.body;
+  const image = await singlePublicFileUpload(req.file);
   const question = await Question.create({
     ownerId,
     title,
-    description
+    description,
+    image
   })
   // console.log(question)
   return res.json(question);
