@@ -47,12 +47,18 @@ export const thunkGetQuestions = () => async (dispatch) => {
 }
 
 export const thunkCreateQuestion = (question) => async (dispatch) => {
+  const {ownerId, title, description, image} = question;
+  const formData = new FormData();
+  formData.append("ownerId", ownerId);
+  formData.append("title", title);
+  formData.append("description", description);
+  if (image) formData.append("image", image);
   const response = await csrfFetch(`/api/questions`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/JSON'
+      'Content-Type': 'multipart/form-data'
     },
-    body: JSON.stringify(question)
+    body: formData
   })
   // console.log(response.ok)
   if (response.ok) {
